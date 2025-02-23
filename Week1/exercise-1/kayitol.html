@@ -1,0 +1,41 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Kayıt ol sayfası</title>
+    <style>
+        @import url("https://fonts.googleapis.com/css2?family=Lato:ital,wght@0,100;0,300;0,400;0,700;0,900;1,100;1,300;1,400;1,700;1,900&family=Rubik:ital,wght@0,300..900;1,300..900&display=swap");
+    </style>
+    <link rel="stylesheet" href="register-style.css" />
+</head>
+
+<body>
+    <div class="register-container">
+        <h2>Kayıt Ol</h2>
+        <form action="#" method="post">
+            <label for="name">İsim</label>
+            <input name="name" type="text" id="name" required />
+
+            <label for="last-name">Soyisim</label>
+            <input name="last-name" type="text" id="last-name" required />
+
+            <label for="birth-date">Doğum tarihi</label>
+            <input name="birth-date" type="date" id="birth-date" required />
+
+            <label for="phone-number">Telefon</label>
+            <input name="phone-number" type="tel" id="phone-number" required />
+
+            <label for="password">Şifre</label>
+            <input name="password" type="password" id="password" class="password" required />
+
+            <label for="re-password">Şifre tekrar</label>
+            <input name="re-password" type="password" id="re-password" class="password" required />
+
+            <button id="save-btn" type="submit">Kaydet</button>
+        </form>
+    </div>
+</body>
+
+</html>

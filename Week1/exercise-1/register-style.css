@@ -1,0 +1,45 @@
+body {
+    display: flex;
+    flex-direction: row;
+    justify-content: center;
+    align-items: center;
+    margin: 0;
+    background-color: aliceblue;
+    font-family: "Lato", sans-serif;
+  }
+  
+  input {
+    margin-bottom: 10px;
+    padding: 5px;
+  }
+  
+  body form {
+    display: flex;
+    flex-direction: column;
+    background-color: #fff;
+    width: 70%;
+    padding: 30px;
+    border-radius: 5px;
+    box-shadow: 3px 3px 3px 3px rgb(0 0 0 / 10%);
+  }
+  
+  .register-container {
+    width: 30%;
+  }
+  
+  #save-btn {
+    padding: 8px;
+    width: 60%;
+    display: block;
+    margin: auto;
+    border: none; 
+    margin-top: 5px;
+    background-color: rgb(29, 222, 96);
+    border-radius: 5px;
+  }
+  
+  #save-btn:hover {
+    background-color: rgb(15, 195, 171);
+    transition: ease 1.2s;
+  }
+  

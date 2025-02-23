@@ -1,0 +1,145 @@
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    font-family: sans-serif;
+}
+
+body {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: 100vh;
+    background-color: #f4f4f4;
+}
+
+h2 {
+    margin-bottom: 15px;
+    font-weight: 500;
+}
+
+.card {
+    position: relative;
+    width: 375px;
+    height: 250px;
+    perspective: 1000px;
+
+}
+
+.card .chip {
+    width: 50px;
+    height: 50px;
+}
+
+.card-info {
+    display: flex;
+    justify-content: space-between;
+    margin-top: 10px;
+}
+
+.card-number span {
+    font-size: 22px;
+    display: flex;
+    justify-content: space-between;
+    letter-spacing: 0.2rem;
+    word-spacing: 0.70rem;
+}
+
+.four-digit p {
+    font-size: 12px;
+}
+
+.expire-date p {
+    font-size: 11px;
+    margin-right: 50px;
+}
+
+.card-holder {
+    font-size: 16px;
+    margin-top: 15px;
+}
+
+
+.card-inner {
+    position: absolute;
+    width: 100%;
+    height: 100%;
+    transition: transform 0.8s;
+    transform-style: preserve-3d;
+}
+
+.card:hover .card-inner {
+    transform: rotateY(180deg);
+}
+
+.magnetic-stripe {
+    background-color: black;
+    width: 100%;
+    height: 60px;
+    margin-top: 5px;
+    margin-bottom: 5px;
+}
+
+.signature {
+    display: flex;
+    justify-content: space-between;
+    width: 90%;
+    height: 40px;
+    margin: auto;
+    margin-top: 5px;
+    background: repeating-linear-gradient(white, white 5px,
+            lightblue 6px, lightblue 7px);
+}
+
+.signature .card-cvc {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    width: 50px;
+    background-color: white;
+    color: black;
+    margin-left: auto;
+}
+
+.signature .card-cvc span {
+    display: inline-block;
+    transform: skewX(10deg);
+}
+
+.card-back .below-desc {
+    display: flex;
+    justify-content: space-between;
+    margin-top: 10px;
+    font-size: 10px;
+    margin: 15px;
+}
+
+.card-front,
+.card-back {
+    position: absolute;
+    width: 100%;
+    height: 100%;
+    backface-visibility: hidden;
+    /* display: flex;
+    justify-content: center;
+    align-items: center;
+    font-size: 24px; */
+    color: white;
+    border-radius: 10px;
+}
+
+.service-phone {
+    font-size: 10px;
+    margin-top: 5px;
+    padding-left: 20px;
+}
+
+.card-front {
+    background: linear-gradient(to bottom right, #6a52ac, #2eddb1);
+    padding: 30px;
+}
+
+.card-back {
+    background: linear-gradient(to bottom right, #2eddb1, #6a52ac);
+    transform: rotateY(180deg);
+}
