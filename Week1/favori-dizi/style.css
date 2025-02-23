@@ -25,6 +25,7 @@ body {
   width: 100%;
   top: 0;
   min-height: 60px;
+  z-index: 1000;
 }
 
 .header-content {
@@ -132,8 +133,7 @@ body {
   width: 60%;
   width: 100%;
   font-size: clamp(14px, 2vw, 20px);
-  line-height: 1.5;
-  padding-top: 20px;
+  line-height: 1.2;
   text-align: justify;
 }
 
@@ -240,6 +240,36 @@ iframe#favorite {
 
 .slider-nav a:hover {
   opacity: 1;
+}
+
+.episodes {
+  max-width: 800px;
+  width: 100%;
+  margin: 0 auto;
+  padding: 20px;
+}
+
+.episodes h2 {
+  margin-bottom: 10px;
+}
+
+.episode-title {
+  margin-top: 10px;
+  margin-bottom: 5px;
+}
+
+.episode img {
+  width: 100%;
+  aspect-ratio: 16 / 9;
+  object-fit: cover;
+}
+
+.episode-description {
+  margin-bottom: 25px;
+  text-align: justify;
+  font-size: clamp(14px, 2vw, 20px);
+  line-height: 1.2;
+  text-align: justify;
 }
 
 @media (max-width: 650px) {
