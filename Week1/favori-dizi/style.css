@@ -121,7 +121,7 @@ body {
 .main-page-image {
   display: flex;
   flex-direction: row;
-  gap: 50px;
+  gap: 20px;
 }
 .main-page-image #poster {
   height: 100%;
@@ -135,6 +135,111 @@ body {
   line-height: 1.5;
   padding-top: 20px;
   text-align: justify;
+}
+
+.favorite-scene {
+  max-width: 800px;
+  width: 100%;
+  margin: 0 auto;
+  padding: 20px;
+}
+
+.favorite-scene h2 {
+  margin-bottom: 10px;
+}
+
+.favorite-scene .favorite-scene-description {
+  font-size: clamp(14px, 2vw, 20px);
+  line-height: 1.5;
+  padding-top: 10px;
+  text-align: justify;
+}
+
+iframe#favorite {
+  width: 100%;
+}
+
+.character-container {
+  padding: 20px;
+  max-width: 800px;
+  margin: 0 auto;
+}
+.character-container h2 {
+  margin-bottom: 10px;
+}
+
+.slider-wrapper {
+  position: relative;
+  max-width: 48rem;
+  margin: 0 auto;
+}
+
+.slider {
+  display: flex;
+  aspect-ratio: 16/9;
+  overflow-x: auto;
+  /* scroll-snap-type: x mandatory; */
+  scroll-behavior: smooth;
+  box-shadow: 0 1.5rem 3rem -0.75rem hsla(0, 0%, 0%, 0.25);
+  scrollbar-width: none;
+  -ms-overflow-style: none;
+}
+
+.slider::-webkit-scrollbar {
+  display: none;
+}
+
+.slide {
+  position: relative;
+  flex: 1 0 100%;
+  scroll-snap-align: start;
+}
+.slide img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+}
+
+.character-info {
+  position: absolute;
+  top: 50%;
+  transform: translateY(-50%);
+  color: #fff;
+  padding: 1rem;
+  padding-left: 2rem;
+  border-radius: 0.5rem;
+  max-width: 40%;
+}
+.character-info p {
+}
+
+.slider img {
+  flex: 1 0 100%;
+  scroll-snap-align: start;
+  object-fit: cover;
+}
+
+.slider-nav {
+  display: flex;
+  column-gap: 1rem;
+  position: absolute;
+  bottom: 1.25rem;
+  left: 50%;
+  transform: translateX(-50%);
+  z-index: 1;
+}
+
+.slider-nav a {
+  width: 0.8rem;
+  height: 0.8rem;
+  border-radius: 50%;
+  background-color: #fff;
+  opacity: 0.75;
+  transition: opacity ease 250ms;
+}
+
+.slider-nav a:hover {
+  opacity: 1;
 }
 
 @media (max-width: 650px) {
@@ -189,5 +294,32 @@ body {
     max-width: 100%;
     padding: 0 15px;
     font-size: 1rem;
+  }
+
+  .slide {
+    position: relative;
+    height: calc(100vw * 9 / 16);
+  }
+
+  .slider {
+    scroll-snap-type: none;
+  }
+
+  .character-info {
+    position: absolute;
+    top: 50%;
+    left: 0;
+    transform: translateY(-50%);
+    max-width: 60%;
+    padding: 1rem;
+  }
+
+  .character-info h2 {
+    font-size: 1rem;
+  }
+  .character-info p {
+    font-size: 0.8rem;
+    line-height: 1.2;
+    word-wrap: break-word;
   }
 }

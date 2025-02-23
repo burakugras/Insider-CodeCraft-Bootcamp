@@ -2,7 +2,10 @@
 <html lang="tr">
   <head>
     <meta charset="UTF-8" />
-    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <meta
+      name="viewport"
+      content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no"
+    />
     <title>Favori Dizim</title>
     <link rel="preconnect" href="https://fonts.googleapis.com" />
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
@@ -63,47 +66,93 @@
         </div>
       </div>
       <div class="favorite-scene">
-        <h2 class="favorite-scene-title">Favori Sahnen</h2>
+        <h2 class="favorite-scene-title">Favori Sahnem</h2>
+        <iframe
+          id="favorite"
+          width="560"
+          height="315"
+          src="https://www.youtube.com/embed/GGCYY13hJSQ?si=oIbITU7Y1dR_RZ6F"
+          title="YouTube video player"
+          frameborder="0"
+          allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share"
+          referrerpolicy="strict-origin-when-cross-origin"
+          allowfullscreen
+        ></iframe>
         <p class="favorite-scene-description">
-          Dizinin en komik sahnelerinden biri olan "Burhan ve Gaffur" sahnesi.
+          Breaking Bad’in "this isn't meth" sahnesi, karakterlerin karanlık iç
+          dünyasını ve suçla iç içe geçmiş yaşamların zorlu ikilemlerini gözler
+          önüne seriyor. Bu sahnede, söylenen kelimeler basit bir reddin
+          ötesinde, karakterin kendi kimliğiyle yüzleşmesinin, kontrolü ele alma
+          çabasının ve içsel çatışmalarının sessiz bir itirafı gibi duruyor.
+          Yönetmenin ustalıkla yarattığı gergin atmosfer, izleyiciyi o anın
+          ağırlığına ortak ediyor; her bakış, her duruş, suç dünyasının içinde
+          kaybolmuş bir insanın umutsuzluğunu ve karanlıkta kalan umut
+          kırıntılarını yansıtıyor. Bu unutulmaz an, dizinin temalarını – güç,
+          çaresizlik ve dönüşüm – derinlemesine hissettiren bir dönüm noktası
+          olarak hafızalarda yer ediyor.
         </p>
-        <img
-          src="https://i.ytimg.com/vi/1Z9Q1J1Q2ZQ/maxresdefault.jpg"
-          alt="Burhan ve Gaffur"
-        />
       </div>
     </section>
 
-    <!-- <section class="characters">
-        <h2 class="characters-title">Karakterler</h2>
-        <div class="characters-content">
-            <div class="character">
-                <img src="https://i.ytimg.com/vi/1Z9Q1J1Q2ZQ/maxresdefault.jpg" alt="Burhan">
-                <h3 class="character-name">Burhan</h3>
-                <p class="character-description">Burhan, dizinin başrol karakterlerinden biridir. Dizideki karakteriyle
-                    izleyicilerin beğenisini kazanmıştır.</p>
+    <section class="character-container">
+      <h2 class="characters">Karakterler</h2>
+      <div class="slider-wrapper">
+        <div class="slider">
+          <div class="slide" id="walter-white">
+            <img src="images/walter-white.jpg" alt="Walter White" />
+            <div class="character-info">
+              <h2>Walter White</h2>
+              <p>
+                Walter White, lisede kimya öğretmeni olarak başlayan bir
+                karakterdir. Ancak, ölümcül bir hastalıkla yüzleştiğinde
+                ailesine maddi güvence sağlamak amacıyla yasa dışı uyuşturucu
+                üretimine adım atar. Zamanla, sıradan bir öğretmenden acımasız
+                ve stratejik bir uyuşturucu baronuna dönüşerek, hem kendi iç
+                dünyasında hem de çevresindeki insanlarla ilişkilerinde derin
+                çatışmalar yaşar.
+              </p>
             </div>
-            <div class="character">
-                <img src="https://i.ytimg.com/vi/1Z9Q1J1Q2ZQ/maxresdefault.jpg" alt="Gaffur">
-                <h3 class="character-name">Gaffur</h3>
-                <p class="character-description">Gaffur, dizinin başrol karakterlerinden biridir. Dizideki karakteriyle
-                    izleyicilerin beğenisini kazanmıştır.</p>
+          </div>
+          <div class="slide" id="jesse-pinkman">
+            <img src="images/jesse-pinkman.webp" alt="Jesse Pinkman" />
+            <div class="character-info">
+              <h2>Jesse Pinkman</h2>
+              <p>
+                Jesse Pinkman, Walter White’ın eski öğrencisi ve uyuşturucu
+                üretiminde iş ortağıdır. İlk başlarda asi ve umursamaz
+                tavırlarıyla öne çıkan Jesse, yaşadığı trajediler ve suç
+                dünyasının acımasızlığı karşısında içsel bir dönüşüm geçirir.
+                Karakter, vicdanıyla hesaplaşması, suçluluk duyguları ve aradığı
+                kurtuluş arasında gidip gelerek izleyicide derin bir empati
+                uyandırır.
+              </p>
             </div>
-            <div class="character">
-                <img src="https://i.ytimg.com/vi/1Z9Q1J1Q2ZQ/maxresdefault.jpg" alt="Aslı">
-                <h3 class="character-name">Aslı</h3>
-                <p class="character-description">Aslı, dizinin başrol karakterlerinden biridir. Dizideki karakteriyle
-                    izleyicilerin beğenisini kazanmıştır.</p>
+          </div>
+          <div class="slide" id="gus-fring">
+            <img src="images/gus-fring.webp" alt="Gustavo Fring" />
+            <div class="character-info">
+              <h2>Gustavo Fring</h2>
+              <p>
+                Gus Fring, mütevazı ve saygın bir iş insanı görünümünün ardında
+                acımasız bir uyuşturucu imparatorluğunu yöneten ustaca bir
+                stratejisttir. Soğukkanlılığı, titiz planlaması ve rakiplerine
+                karşı gösterdiği amansız tutumuyla dikkat çeker. Hem yasa dışı
+                işlerini hem de meşru iş imajını başarıyla dengeleyerek, keskin
+                zekâsı ve titiz organizasyonuyla rakiplerine karşı hep bir adım
+                önde olmayı başarır.
+              </p>
             </div>
-            <div class="character">
-                <img src="https://i.ytimg.com/vi/1Z9Q1J1Q2ZQ/maxresdefault.jpg" alt="Volkan">
-                <h3 class="character-name">Volkan</h3>
-                <p class="character-description">Volkan, dizinin başrol karakterlerinden biridir. Dizideki karakteriyle
-                    izleyicilerin beğenisini kazanmıştır.</p>
-            </div>
+          </div>
+        </div>
+        <div class="slider-nav">
+          <a href="#walter-white"></a>
+          <a href="#jesse-pinkman"></a>
+          <a href="#gus-fring"></a>
+        </div>
+      </div>
     </section>
 
-    <section class="episodes">
+    <!-- <section class="episodes">
         <h2 class="episodes-title">Bölümler</h2>
         <div class="episodes-content">
             <div class="episode">
@@ -127,12 +176,12 @@
                 <p class="episode-description">Dizinin 4. bölümü.</p>
             </div>
         </div>
-    </section>
+    </section> -->
     <footer>
-        <div class="footer-content">
-            Bu site Burak Uğraş tarafından yapılmıştır.
-        </div>
-    </footer> -->
+      <div class="footer-content">
+        Bu site Burak Uğraş tarafından yapılmıştır.
+      </div>
+    </footer>
 
     <script src="script.js"></script>
   </body>
