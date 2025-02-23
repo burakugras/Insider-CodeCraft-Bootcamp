@@ -11,10 +11,27 @@ navElm.addEventListener("click", () => {
   hamburgerElm.classList.remove("hamburger--open");
 });
 
-
-document.querySelector('.slider').addEventListener('wheel', function(e) {
-    if (Math.abs(e.deltaY) > Math.abs(e.deltaX)) {
+document.querySelectorAll('.nav-link').forEach(link => {
+    link.addEventListener('click', function (e) {
       e.preventDefault();
-    }
-  }, { passive: false });
+  
+      const targetId = this.getAttribute('href').substring(1);
+      const targetSection = document.getElementById(targetId);
+  
+      if (targetSection) {
+        window.scrollTo({
+          top: targetSection.offsetTop - 60,
+          behavior: 'smooth'
+        });
+      }
+    });
+  });
+  
+
+
+// document.querySelector('.slider').addEventListener('wheel', function(e) {
+//     if (Math.abs(e.deltaY) > Math.abs(e.deltaX)) {
+//       e.preventDefault();
+//     }
+//   }, { passive: false });
   

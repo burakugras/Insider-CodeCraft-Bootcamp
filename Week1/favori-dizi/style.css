@@ -15,12 +15,12 @@ a {
 
 body {
   font-family: "Inter", sans-serif;
-  background-color: #e8f0f7;
+  background-color: #f7f1eb;
   padding-top: 60px;
 }
 
 .header {
-  background-color: rgb(19, 22, 26);
+  background-color: #022f15;
   position: fixed;
   width: 100%;
   top: 0;
@@ -60,17 +60,14 @@ body {
   right: 70px;
 }
 
-.nav-item {
-}
-
 .nav-link {
-  color: #d1d1d1;
+  color: #a3c1ad;
   font-size: 15px;
   transition: color 0.4s;
 }
 
 .nav-link:hover {
-  color: #fff;
+  color: #ffdd00;
 }
 
 .hamburger {
@@ -83,7 +80,7 @@ body {
 .bar {
   height: 2px;
   width: 27px;
-  background-color: #fff;
+  background-color: #ffdd00;
   margin: 5px 0;
   opacity: 0.8;
   transition: all 0.3s ease-in-out;
@@ -109,6 +106,7 @@ body {
   display: flex;
   flex-direction: column;
 }
+
 .main-page-content {
   max-width: 800px;
   width: 100%;
@@ -119,18 +117,19 @@ body {
 .main-page-content h1 {
   margin-bottom: 10px;
 }
+
 .main-page-image {
   display: flex;
   flex-direction: row;
   gap: 20px;
 }
+
 .main-page-image #poster {
   height: 100%;
   width: 40%;
 }
 
 .main-page-description {
-  width: 60%;
   width: 100%;
   font-size: clamp(14px, 2vw, 20px);
   line-height: 1.2;
@@ -164,6 +163,7 @@ iframe#favorite {
   max-width: 800px;
   margin: 0 auto;
 }
+
 .character-container h2 {
   margin-bottom: 10px;
 }
@@ -178,7 +178,7 @@ iframe#favorite {
   display: flex;
   aspect-ratio: 16/9;
   overflow-x: auto;
-  /* scroll-snap-type: x mandatory; */
+  scroll-snap-type: x mandatory;
   scroll-behavior: smooth;
   box-shadow: 0 1.5rem 3rem -0.75rem hsla(0, 0%, 0%, 0.25);
   scrollbar-width: none;
@@ -194,6 +194,7 @@ iframe#favorite {
   flex: 1 0 100%;
   scroll-snap-align: start;
 }
+
 .slide img {
   width: 100%;
   height: 100%;
@@ -210,13 +211,12 @@ iframe#favorite {
   border-radius: 0.5rem;
   max-width: 40%;
 }
-.character-info p {
-}
 
 .slider img {
   flex: 1 0 100%;
   scroll-snap-align: start;
   object-fit: cover;
+  position: relative;
 }
 
 .slider-nav {
@@ -233,7 +233,7 @@ iframe#favorite {
   width: 0.8rem;
   height: 0.8rem;
   border-radius: 50%;
-  background-color: #fff;
+  background-color: #ffdd00;
   opacity: 0.75;
   transition: opacity ease 250ms;
 }
@@ -266,10 +266,14 @@ iframe#favorite {
 
 .episode-description {
   margin-bottom: 25px;
-  text-align: justify;
   font-size: clamp(14px, 2vw, 20px);
   line-height: 1.2;
   text-align: justify;
+}
+
+.footer-content {
+  display: flex;
+  justify-content: center;
 }
 
 @media (max-width: 650px) {
@@ -277,7 +281,7 @@ iframe#favorite {
     position: fixed;
     top: 60px;
     left: 0;
-    background-color: rgb(19, 22, 26);
+    background-color: #003366;
     width: 100%;
     padding: 10px 0 25px;
     transform: translateX(-100%);
@@ -301,6 +305,7 @@ iframe#favorite {
   .main-page-image {
     flex-direction: column;
   }
+
   .main-page-title {
     text-align: center;
     width: 100%;
