@@ -18,9 +18,9 @@ ul {
     height: 80%;
     overflow-y: auto;
     scrollbar-width: none;
-    gap: 20px;
+    /* gap: 20px; */
     list-style-type: none;
-    padding: 20px;
+    padding: 0 20px 20px;
 }
 
 ul h4 {
@@ -31,10 +31,27 @@ ul h4 {
     position: relative;
 }
 
-
+ul .line {
+    position: absolute;
+    left: 0;
+    top: 50%;
+    height: 1px;
+    width: 100%;
+    transform: scaleX(1);
+    transform: translateY(-50%);
+    background: #4f52ba;
+    transform-origin: right;
+    transition-delay: 0.2s;
+}
 
 h4 {
     margin-top: 20px;
+}
+
+h4 .menu-title,
+h4 .general-title,
+h4 .account-title {
+    opacity: 1;
 }
 
 li a {
@@ -43,10 +60,18 @@ li a {
     gap: 0 20px;
     color: #fff;
     font-weight: 500;
-    padding: 15px 15px; /**/
+    padding: 15px 15px;
+    /**/
     text-decoration: none;
     transition: all 0.2s ease;
     text-wrap: nowrap;
+    border-radius: 5px;
+}
+
+li a:hover {
+    background: #fff;
+    border-radius: 5px;
+    color: #161a2d;
 }
 
 .sidebar {
@@ -58,24 +83,48 @@ li a {
     display: flex;
     flex-direction: column;
     background: #161a2d;
+    transition: all 0.4s ease;
+}
+
+/*yeni*/
+ul a .siderbar-items,
+.sidebar-header h2 {
+    opacity: 0;
+}
+
+.sidebar ul .menu-title,
+.sidebar ul .general-title,
+.sidebar ul .account-title {
+    opacity: 0;
 }
 
 .sidebar:hover ul .menu-title,
 .sidebar:hover ul .general-title,
-.sidebar:hover ul .account-title{
-    opacity: 0;
+.sidebar:hover ul .account-title {
+    opacity: 1;
 }
 
-.sidebar:hover{
+.sidebar:hover ul .line {
+    display: none;
+}
+
+.sidebar:hover {
     width: 260px;
     transition: all 0.4s ease;
+    
+}
+
+.sidebar:hover .siderbar-items,
+.sidebar:hover .sidebar-header h2 {
+    opacity: 1;
+    transition-delay: 0.1s;
 }
 
 .sidebar-header {
     display: flex;
     align-items: center;
     gap: 15px;
-    padding: 25px;
+    padding: 20px;
     color: #fff;
 }
 
