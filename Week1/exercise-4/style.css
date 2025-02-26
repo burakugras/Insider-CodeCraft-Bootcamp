@@ -59,8 +59,8 @@ h4 .general-title,
 h4 .account-title,
 ul li a,
 .sidebar-header h2 {
-  color: #fff;
-  text-wrap: nowrap;
+  color: #f0f4ff;
+  white-space: nowrap;
   display: none;
   transition: all 0.2s ease;
 }
