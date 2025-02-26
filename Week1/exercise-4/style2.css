@@ -1,0 +1,90 @@
+@import url("https://fonts.googleapis.com/css2?family=Poppins:wght@400;500;600;700&display=swap");
+
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    font-family: "Poppins", sans-serif;
+}
+
+body {
+    min-height: 100vh;
+    background: #F0F4FF;
+}
+
+ul {
+    display: flex;
+    flex-direction: column;
+    height: 80%;
+    overflow-y: auto;
+    scrollbar-width: none;
+    gap: 20px;
+    list-style-type: none;
+    padding: 20px;
+}
+
+ul h4 {
+    color: #fff;
+    font-weight: 500;
+    white-space: nowrap;
+    margin: 10px 0;
+    position: relative;
+}
+
+
+
+h4 {
+    margin-top: 20px;
+}
+
+li a {
+    display: flex;
+    align-items: center;
+    gap: 0 20px;
+    color: #fff;
+    font-weight: 500;
+    padding: 15px 15px; /**/
+    text-decoration: none;
+    transition: all 0.2s ease;
+    text-wrap: nowrap;
+}
+
+.sidebar {
+    position: fixed;
+    width: 85px;
+    height: 100%;
+    top: 0;
+    left: 0;
+    display: flex;
+    flex-direction: column;
+    background: #161a2d;
+}
+
+.sidebar:hover ul .menu-title,
+.sidebar:hover ul .general-title,
+.sidebar:hover ul .account-title{
+    opacity: 0;
+}
+
+.sidebar:hover{
+    width: 260px;
+    transition: all 0.4s ease;
+}
+
+.sidebar-header {
+    display: flex;
+    align-items: center;
+    gap: 15px;
+    padding: 25px;
+    color: #fff;
+}
+
+.sidebar .sidebar-header img {
+    width: 42px;
+    height: 42px;
+    border-radius: 50%;
+}
+
+.siderbars-items {
+    list-style-type: none;
+}
