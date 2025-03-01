@@ -15,13 +15,13 @@ const startConf = () => {
     }
 }
 
-const showWarning = () => {
+const showWarning = (message) => {
     const warningDiv = document.createElement('div');
     warningDiv.classList.add('warning-div');
 
     const warningText = document.createElement('span');
     warningText.classList.add('warning-text');
-    warningText.textContent = 'Başlık boş olamaz!';
+    warningText.textContent = message;
 
     warningDiv.appendChild(warningText);
     container.prepend(warningDiv);
@@ -36,16 +36,22 @@ const addTodo = (e) => {
     e.preventDefault();
 
     const inputVal = input.value;
+    const selectedPriority = document.querySelector('input[name="priority"]:checked');
 
     if (inputVal == '') {
-        showWarning();
+        showWarning('Başlık alanı boş bırakılamaz!');
+        return false;
+    } else if (!selectedPriority) {
+        showWarning('Öncelik alanı seçiniz!');
         return false;
     }
+
 
     const todo = {
         text: inputVal,
         isCompleted: false,
-        priority: description.value
+        priority: selectedPriority.value,
+        desc: description.value
     }
 
     const todos = JSON.parse(localStorage.getItem('todos'));
@@ -124,14 +130,14 @@ const addHTML = (todo) => {
     todoText.classList.add('todo-text');
     todoText.textContent = todo.text;
 
-    const desc= document.createElement('span');
-    desc.classList.add('todo-desc');
-    desc.textContent = todo.priority;
+    const priority = document.createElement('span');
+    priority.classList.add('todo-priority');
+    priority.textContent = todo.priority;
 
     todoLeft.appendChild(todoCb);
     todoLeft.appendChild(todoText);
     todoLeft.appendChild(editInput);
-    todoLeft.appendChild(desc);
+    todoLeft.appendChild(priority);
 
     const todoRight = document.createElement('div');
     todoRight.classList.add('todo-right');
@@ -151,6 +157,10 @@ const addHTML = (todo) => {
     saveBtn.textContent = 'Save';
     saveBtn.addEventListener('click', saveTodo);
 
+    const desc = document.createElement('span');
+    desc.classList.add('todo-desc');
+    desc.textContent = todo.desc;
+
 
     todoRight.appendChild(deleteBtn);
     todoRight.appendChild(editBtn);
@@ -158,6 +168,7 @@ const addHTML = (todo) => {
 
     todoDiv.appendChild(todoLeft);
     todoDiv.appendChild(todoRight);
+    todoDiv.appendChild(desc);
 
     todoContainer.appendChild(todoDiv);
 }
