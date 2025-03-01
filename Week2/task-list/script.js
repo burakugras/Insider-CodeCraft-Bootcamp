@@ -90,16 +90,19 @@ const saveTodo = (e) => {
     const todo = e.target.parentElement.parentElement;
     const prevText = todo.firstChild.children[1].textContent;
     const newText = todo.firstChild.children[2].value;
+    const newDesc = todo.querySelector('.todo-editDescInput').value;
 
     let todos = JSON.parse(localStorage.getItem('todos'));
     todos.forEach(td => {
         if (td.text === prevText) {
             td.text = newText;
+            td.desc = newDesc;
         }
     })
 
     localStorage.setItem('todos', JSON.stringify(todos))
     todo.firstChild.children[1].textContent = newText;
+    todo.querySelector('.todo-desc').textContent = newDesc;
     todo.classList.remove('-edited');
 }
 
@@ -161,6 +164,10 @@ const addHTML = (todo) => {
     desc.classList.add('todo-desc');
     desc.textContent = todo.desc;
 
+    const editDescInput = document.createElement('textarea');
+    editDescInput.classList.add('todo-editDescInput');
+    editDescInput.defaultValue = todo.desc;
+
 
     todoRight.appendChild(deleteBtn);
     todoRight.appendChild(editBtn);
@@ -169,6 +176,7 @@ const addHTML = (todo) => {
     todoDiv.appendChild(todoLeft);
     todoDiv.appendChild(todoRight);
     todoDiv.appendChild(desc);
+    todoDiv.appendChild(editDescInput);
 
     todoContainer.appendChild(todoDiv);
 }
