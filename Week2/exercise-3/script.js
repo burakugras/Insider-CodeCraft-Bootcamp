@@ -1,5 +1,5 @@
 let countdownInterval;
-let countdownValue=0;
+let countdownValue = 0;
 
 const startCount = () => {
   countdownValue = Number(document.getElementById("countdown-input").value);
@@ -22,5 +22,6 @@ const startCount = () => {
 
 const reset = () => {
   clearInterval(countdownInterval);
-  document.getElementById("display").innerText="Sıfırlandı!"
+  document.getElementById("display").innerText = "Sıfırlandı!"
+  document.getElementById("sub-display").innerText = "";
 };

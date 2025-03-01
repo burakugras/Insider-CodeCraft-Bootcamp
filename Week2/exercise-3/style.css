@@ -10,7 +10,7 @@ body {
   justify-content: center;
   align-items: center;
   height: 100vh;
-  background-color: rgb(53, 50, 107);
+  background-color: rgb(99, 97, 134);
 }
 
 .container {
@@ -22,7 +22,7 @@ body {
   justify-content: center;
   align-items: center;
   gap: 10px;
-  background-color: rgb(230, 228, 120);
+  background-color: rgb(228, 227, 159);
   border-radius: 5px;
 }
 
