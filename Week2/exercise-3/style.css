@@ -1,0 +1,89 @@
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+body {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  height: 100vh;
+  background-color: rgb(53, 50, 107);
+}
+
+.container {
+  position: absolute;
+  width: 400px;
+  height: auto;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  gap: 10px;
+  background-color: rgb(230, 228, 120);
+  border-radius: 5px;
+}
+
+#countdown-input {
+  width: 40%;
+  padding: 10px;
+  text-align: center;
+  font-size: 14px;
+  margin-top: 30px;
+}
+
+.buttons {
+  display: flex;
+  justify-content: center;
+  column-gap: 25px;
+}
+
+button {
+  width: 100px;
+  padding: 3px;
+  border-radius: 3px;
+  border: 0.1;
+}
+
+#start-button:hover {
+  background-color: rgb(44, 81, 227);
+  color: azure;
+  transition: all 0.2s ease-out;
+  border-radius: 5px;
+}
+
+#reset-button:hover {
+  background-color: rgba(9, 154, 47, 0.816);
+  color: azure;
+  transition: all 0.4s ease;
+}
+
+#display,
+#sub-display {
+  margin-top: 20px;
+  font-size: 2.5rem;
+  overflow-wrap: break-word;
+  text-align: center;
+  word-wrap: break-word;
+  max-width: 100%;
+  min-height: 50px;
+  line-height: 1.2;
+  transition: all 0.3s ease-in-out;
+}
+
+#display {
+  min-height: 70px;
+}
+
+#sub-display {
+  min-height: 50px;
+  font-size: 20px;
+}
+
+@media (max-width: 480px) {
+  #display {
+    font-size: 2rem;
+  }
+}
