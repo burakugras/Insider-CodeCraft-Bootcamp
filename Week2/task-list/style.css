@@ -237,7 +237,8 @@ body {
 }
 
 .todo.completed {
-    background-color: #d4edda;
+    background-color: #abf2bc;
+    border-radius: 5px;
 }
 
 @media (max-width: 576px) {
