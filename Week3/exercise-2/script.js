@@ -22,20 +22,28 @@ function getProducts() {
 }
 
 function loadProducts() {
-    getProducts().then(products => {
-        products.forEach(product => {
-            $('#products').append(`
-                <div class="product">
-                    <img src="${product.image}"
-                    alt="Ürün">
-                    <h3>${product.title}</h3>
-                    <p>${product.description}</p>
-                    <p>${product.price}</p>
-                    <button class="buy">Satın al</button>
-                    <button class="fav">Favorilere Ekle</button>
-                </div>`)
-        });
+    getProducts().then(response => {
+        const products = response.products;
+
+        if (Array.isArray(products)) {
+            products.forEach(product => {
+                $('#products').append(`
+                    <div class="product">
+                        <a href="${product.images[0]}" target="_blank">
+                            <img src="${product.thumbnail}" alt="Ürün">
+                        </a>
+                        <h3>${product.title}</h3>
+                        <p>${product.description}</p>
+                        <p>${product.price}</p>
+                        <button class="buy">Satın al</button>
+                        <button class="fav">Favorilere Ekle</button>
+                    </div>
+                    `);
+            });
+        } else {
+            console.error("Beklenen formatta veri alınamadı.");
+        }
     }).catch(error => {
-        console.log(error);
-    })
+        console.error("Ürünleri yüklerken hata oluştu:", error);
+    });
 }
