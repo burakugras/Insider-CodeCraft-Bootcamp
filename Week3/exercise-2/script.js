@@ -29,16 +29,15 @@ function loadProducts() {
             products.forEach(product => {
                 $('#products').append(`
                     <div class="product">
-                        <a href="${product.images[0]}" target="_blank">
-                            <img src="${product.thumbnail}" alt="Ürün">
-                        </a>
-                        <h3>${product.title}</h3>
-                        <p>${product.description}</p>
-                        <p>${product.price}</p>
-                        <button class="buy">Satın al</button>
-                        <button class="fav">Favorilere Ekle</button>
-                    </div>
-                    `);
+                        <img class="clickable-image" src="${product.thumbnail}" data-url="${product.images[0]}" alt="Ürün">
+                        <h3 class="product-title">${product.title}</h3>
+                        <p class="product-description">${product.description}</p>
+                        <span class="product-price">${product.price}</span>
+                        <div class="buttons">
+                            <button class="buy">Satın al</button>
+                            <button class="fav">Favorilere Ekle</button>
+                        </div>
+                    </div>`);
             });
         } else {
             console.error("Beklenen formatta veri alınamadı.");
@@ -47,3 +46,10 @@ function loadProducts() {
         console.error("Ürünleri yüklerken hata oluştu:", error);
     });
 }
+
+$(document).on('click', '.clickable-image', function (event) {
+    let url = $(event.target).data('url');
+    if (url) {
+        window.open(url, '_blank');
+    }
+})
