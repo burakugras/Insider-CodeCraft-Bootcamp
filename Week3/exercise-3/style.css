@@ -8,6 +8,7 @@
 
 body {
   display: flex;
+  flex-direction: column;
   justify-content: center;
   align-items: center;
   height: 100vh;
@@ -43,6 +44,30 @@ button {
   border-radius: 4px;
 }
 
+.head {
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+  justify-content: space-between;
+}
+
+#open-form {
+  margin: 10px;
+  display: flex;
+}
+
+#close-form {
+  background-color: tomato;
+  padding: 5px;
+  width: 25px;
+  font-weight: 600;
+  display: flex;
+  justify-content: center;
+  border: white;
+  border-radius: 3px;
+  cursor: pointer;
+}
+
 #submit-button {
   width: 50%;
   margin: 0 auto;
@@ -50,7 +75,7 @@ button {
 }
 
 #application-form {
-  display: flex;
+  display: none;
   flex-direction: column;
   align-items: flex-start;
   width: 100%;
