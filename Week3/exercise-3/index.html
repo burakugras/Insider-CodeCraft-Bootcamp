@@ -1,0 +1,41 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>İş başvuru formu</title>
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.6.0/jquery.min.js"></script>
+    <link rel="stylesheet" href="style.css" />
+  </head>
+  <body>
+    <div id="application-form" class="hidden-container">
+      <form
+        id="job-form"
+        class="apply-form"
+        method="post"
+        action="/submit-form"
+      >
+        <h3 class="head-apply-form">İş başvuru formu</h3>
+        <label id="name-input" for="name">İsim</label>
+        <input id="name" type="text" name="name" required />
+
+        <label id="last-name-input" for="last-name">Soy isim</label>
+        <input id="last-name" type="text" name="last-name" required />
+
+        <label id="email-input" for="email">Email</label>
+        <input id="email" type="email" name="email" required />
+
+        <label id="phone-input" for="phone">Telefon</label>
+        <input id="phone" type="tel" name="phone" required />
+
+        <label id="position-input" for="position">Pozisyon</label>
+        <input id="position" type="text" name="position" required />
+
+        <label id="date-input" for="birthdate">Doğum Tarihi</label>
+        <input id="birthdate" type="date" name="birthdate" />
+
+        <button id="submit-button" type="submit">Gönder</button>
+      </form>
+    </div>
+  </body>
+</html>
