@@ -46,7 +46,7 @@ $(document).ready(function () {
           $(this).remove();
         });
 
-      // form.reset();
+      form.reset();
 
       $("#application-form").fadeOut();
       $("#open-form").show();
