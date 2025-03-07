@@ -4,12 +4,13 @@
   box-sizing: border-box;
   font-family: Arial, sans-serif;
   font-size: 1rem;
+  user-select: none;
 }
 
 body {
   display: flex;
   flex-direction: column;
-  justify-content: center;
+  /* justify-content: center; */
   align-items: center;
   height: 100vh;
   background-color: #f4f4f4;
@@ -44,6 +45,15 @@ button {
   border-radius: 4px;
 }
 
+.error {
+  color: red;
+  font-size: 12px;
+}
+
+.hasDatepicker {
+  color: black;
+}
+
 .head {
   display: flex;
   flex-direction: row;
@@ -54,6 +64,7 @@ button {
 #open-form {
   margin: 10px;
   display: flex;
+  position: fixed
 }
 
 #close-form {
@@ -84,6 +95,16 @@ button {
   background-color: white;
   box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
   border-radius: 8px;
+  margin-top: 15%
+}
+
+#success-message {
+  margin: 15px;
+  background-color: #9ee4a1;
+  width: auto;
+  height: auto;
+  padding: 20px;
+  border-radius: 3px;
 }
 
 @media (max-width: 768px) {
