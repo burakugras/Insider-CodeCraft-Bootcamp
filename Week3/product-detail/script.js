@@ -96,22 +96,23 @@ function runCode() {
         .appendTo(prod);
 
       prod.on("click", function () {
+        let brandText = product.brand ? product.brand : "-";
         popupContent.html(
           "<h3>" +
-            product.title +
-            "</h3>" +
-            "<p>" +
-            product.description +
-            "</p>" +
-            "<p><strong>Fiyat:</strong> $" +
-            product.price +
-            "</p>" +
-            "<p><strong>Marka:</strong> " +
-            product.brand +
-            "</p>" +
-            "<img src='" +
-            product.thumbnail +
-            "' style='width:100%; margin-top:10px;'>"
+          product.title +
+          "</h3>" +
+          "<p>" +
+          product.description +
+          "</p>" +
+          "<p><strong>Fiyat:</strong> $" +
+          product.price +
+          "</p>" +
+          "<p><strong>Marka:</strong> " +
+          brandText +
+          "</p>" +
+          "<img src='" +
+          product.thumbnail +
+          "' style='width:100%; margin-top:10px;'>"
         );
         popupOverlay.fadeIn(300);
       });
