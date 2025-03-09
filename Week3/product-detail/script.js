@@ -14,65 +14,74 @@ function runCode() {
     .prop("type", "text/css")
     .html(
       `
-        body {
-            font-family: Arial, sans-serif;
-            background: #f4f4f4;
-            margin: 0;
-            padding: 20px;
-        }
-        .product-container {
-            display: flex;
-            flex-wrap: wrap;
-            gap: 20px;
-        }
-        .product {
-            background: #fff;
-            border: 1px solid #ddd;
-            padding: 15px;
-            width: 200px;
-            cursor: pointer;
-            transition: all 0.3s ease;
-        }
-        .product:hover {
-            transform: scale(1.05);
-            background: #e9e9e9;
-        }
-        .product h3 {
-            margin: 0 0 10px 0;
-            font-size: 18px;
-        }
-        .product p {
-            margin: 5px 0;
-        }
-        .popup-overlay {
-            position: fixed;
-            top: 0;
-            left: 0;
-            width: 100%;
-            height: 100%;
-            background: rgba(0, 0, 0, 0.5);
-            display: none;
-            align-items: center;
-            justify-content: center;
-        }
-        .popup {
-            background: #fff;
-            padding: 20px;
-            border-radius: 5px;
-            max-width: 400px;
-            width: 90%;
-            position: relative;
-        }
-        .popup h3 {
-            margin-top: 0;
-        }
-        .popup .close-btn {
-            position: absolute;
-            top: 10px;
-            right: 10px;
-            cursor: pointer;
-            font-size: 20px;
-        }
+      body {
+          font-family: Arial, sans-serif;
+          background: #f4f4f4;
+          margin: 0;
+          padding: 20px;
+      }
+      .product-container {
+          display: flex;
+          flex-wrap: wrap;
+          gap: 20px;
+      }
+      .product {
+          background: #fff;
+          border: 1px solid #ddd;
+          padding: 15px;
+          width: 200px;
+          cursor: pointer;
+          transition: all 0.3s ease;
+          border-radius: 10px;
+      }
+      .product:hover {
+          transform: scale(1.05);
+          background: #e9e9e9;
+      }
+      .product h3 {
+          margin: 0 0 10px 0;
+          font-size: 18px;
+      }
+      .product p {
+          margin: 5px 0;
+      }
+      .popup-overlay {
+          position: fixed;
+          top: 0;
+          left: 0;
+          width: 100%;
+          height: 100%;
+          background: rgba(0, 0, 0, 0.5);
+          display: none;
+          align-items: center;
+          justify-content: center;
+      }
+      .popup {
+          background: #fff;
+          padding: 20px;
+          border-radius: 5px;
+          max-width: 400px;
+          width: 90%;
+          position: absolute;
+          border-radius: 10px;
+          top: 50%;
+          left: 50%;
+          transform: translate(-50%, -50%);
+      }
+      .popup h3 {
+          margin-top: 0;
+      }
+      .popup .close-btn {
+          position: absolute;
+          top: 10px;
+          right: 10px;
+          cursor: pointer;
+          font-size: 20px;
+      }
+      .popup-image {
+          width: 100%;
+          margin-top: 10px;
+      }
     `
     )
     .appendTo("head");
@@ -97,23 +106,18 @@ function runCode() {
 
       prod.on("click", function () {
         let brandText = product.brand ? product.brand : "-";
-        popupContent.html(
-          "<h3>" +
-          product.title +
-          "</h3>" +
-          "<p>" +
-          product.description +
-          "</p>" +
-          "<p><strong>Fiyat:</strong> $" +
-          product.price +
-          "</p>" +
-          "<p><strong>Marka:</strong> " +
-          brandText +
-          "</p>" +
-          "<img src='" +
-          product.thumbnail +
-          "' style='width:100%; margin-top:10px;'>"
-        );
+        popupContent
+          .empty()
+          .append($("<h3>").text(product.title))
+          .append($("<p>").text(product.description))
+          .append($("<p>").html("<strong>Fiyat:</strong> $" + product.price))
+          .append($("<p>").html("<strong>Marka:</strong> " + brandText));
+
+        var imgElement = $("<img>")
+          .attr("src", product.thumbnail)
+          .addClass("popup-image");
+        popupContent.append(imgElement);
+
         popupOverlay.fadeIn(300);
       });
 
