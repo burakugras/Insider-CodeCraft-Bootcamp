@@ -1,9 +1,13 @@
 async function fetchUsers() {
     try {
-        let response = await fetch("https://jsonplaceholder.typicode.com/users");
-        let data = await response.json();
+        let users = JSON.parse(localStorage.getItem('users'));
 
-        localStorage.setItem('users', JSON.stringify(data));
+        if (!users || users.length === 0) {
+            let response = await fetch("https://jsonplaceholder.typicode.com/users");
+            let data = await response.json();
+            localStorage.setItem('users', JSON.stringify(data));
+        }
+
     } catch (error) {
         console.log('Veriler getirilirken bir sorun oluştu.');
     }
@@ -22,6 +26,18 @@ const startConfig = async () => {
     }
 }
 
+const deleteUser = (event) => {
+    const selectedUser = event.target.parentElement;
+
+    let users = JSON.parse(localStorage.getItem('users'));
+    const userName = selectedUser.querySelector('.name-container span').textContent;
+    users = users.filter(usr => usr.name !== userName);
+
+    localStorage.setItem('users', JSON.stringify(users));
+
+    selectedUser.remove();
+}
+
 const addHTML = (user) => {
     const userDiv = document.createElement('li');
     userDiv.classList.add('user');
@@ -29,6 +45,8 @@ const addHTML = (user) => {
     const deleteSpan = document.createElement('span');
     deleteSpan.classList.add('delete-span');
     deleteSpan.textContent = 'X';
+
+    deleteSpan.addEventListener('click', deleteUser);
 
     userDiv.appendChild(deleteSpan);
 
