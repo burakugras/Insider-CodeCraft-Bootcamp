@@ -1,11 +1,12 @@
 async function fetchUsers() {
     try {
-        let users = JSON.parse(localStorage.getItem('users'));
+        let storedData = JSON.parse(localStorage.getItem('usersData'));
 
-        if (!users || users.length === 0) {
+        if (!storedData || !storedData.timestamp || (Date.now() - storedData.timestamp) > 86400000) {
             let response = await fetch("https://jsonplaceholder.typicode.com/users");
             let data = await response.json();
-            localStorage.setItem('users', JSON.stringify(data));
+            
+            localStorage.setItem('usersData', JSON.stringify({ users: data, timestamp: Date.now() }));
         }
 
     } catch (error) {
@@ -13,14 +14,14 @@ async function fetchUsers() {
     }
 }
 
-
 const startConfig = async () => {
     await fetchUsers();
-    const users = JSON.parse(localStorage.getItem('users'));
-    if (!users) {
-        localStorage.setItem('users', JSON.stringify([]));
+    const storedData = JSON.parse(localStorage.getItem('usersData'));
+
+    if (!storedData || !storedData.users) {
+        localStorage.setItem('usersData', JSON.stringify({ users: [], timestamp: Date.now() }));
     } else {
-        users.forEach(user => {
+        storedData.users.forEach(user => {
             addHTML(user);
         });
     }
@@ -28,13 +29,14 @@ const startConfig = async () => {
 
 const deleteUser = (event) => {
     const selectedUser = event.target.parentElement;
+    let storedData = JSON.parse(localStorage.getItem('usersData'));
 
-    let users = JSON.parse(localStorage.getItem('users'));
+    if (!storedData || !storedData.users) return;
+
     const userName = selectedUser.querySelector('.name-container span').textContent;
-    users = users.filter(usr => usr.name !== userName);
+    storedData.users = storedData.users.filter(usr => usr.name !== userName);
 
-    localStorage.setItem('users', JSON.stringify(users));
-
+    localStorage.setItem('usersData', JSON.stringify(storedData));
     selectedUser.remove();
 }
 
