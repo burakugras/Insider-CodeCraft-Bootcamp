@@ -3,6 +3,7 @@
     padding: 0;
     box-sizing: border-box;
     user-select: none;
+    font-family: Nunito, sans-serif, Arial, Helvetica, sans-serif;
 }
 
 body {
@@ -13,7 +14,7 @@ body {
 }
 
 label {
-    font-weight: 600;
+    font-weight: 700;
 }
 
 .ins-api-users {
@@ -45,7 +46,7 @@ label {
     background-color: tomato;
     padding: 5px;
     width: 25px;
-    font-weight: 600;
+    height: 25px;
     display: flex;
     justify-content: center;
     align-items: center;
@@ -53,5 +54,6 @@ label {
     cursor: pointer;
     position: absolute;
     top: 10px;
-    right: 20px;
+    right: 15px;
+    font-weight: bolder;
 }
