@@ -1,0 +1,55 @@
+Projeyi arayüz tarafında incelerken arayüz tarafında karşılaştığım hatalar aşağıdaki şekilde. Kod tarafını 
+aşağıdaki hatalara göre inceledim. Bu şekilde debug yapmam daha verimli oldu.
+
+1. Aynı ürünü birden fazla kez sepete eklediğinde adete ekliyor ancak TOPLAM’a eklemiyor.
+2. İndirim kodu uygulanmıyor.
+3. Product-card’daki sepete ekle butonuna tıkladığımızda STOK’dan düşmüyor.
+4. Ürünü eklediğimizde ürünün kendi stok adedinden çok ekleniyor.
+5. Sepetim kısmında eklediğimiz ürünün fiyat kısmı tek bir ürün için yazıyor, yani aynı üründen ekledikçe fiyat artmıyor.
+6. İndirim geçersiz kodu sürekli kalıyor ve her tıklandığında tekrar yazıyor.
+7. İndirim kodu uygulandığı zaman fiyatı %10 azaltmak yerine fiyatı %10’a indiriyor.
+8. Silinen ürün stok'a geri eklenmiyor.
+
+
+-------DEBUG-------
+
+1. calculateTotal fonksiyonunun başladığı yere breakpoint koydum. Her öğenin quantity ve price değerlerini
+inceledim. console.log(this.items) ile ürünlerin miktarlarını kontrol ettim
+
+Sonuç : item.quantity ile çarpım konulmaıştı. => return sum + item.price * item.quantity; kodu ile sorun düzeldi.
+
+2. applyDiscount fonksiyonunun başladığı yere breakpoint koydum. Önceki hata mesajlarının temizlenmemesi
+sebebiyle yanlış geri bildirim veriyordu.
+
+Sonuç : Hata mesajlarını temizlemek için clearError adında ek bir fonksiyon yazdım.
+
+3. Bu bug için addItem fonksiyonunun başladığı noktaya breakpoint koydum. Fonksiyon çalışırken her ürün
+için quantity değerini kontrol ettim.
+
+Sonuç : try içerisinde son işlem olarak product.stock -= quantity; kodunu ekledim.
+
+4. üçüncü bug'ı incelerken stok miktarının 0'a kadar düşmesi için eşittir operatörünü kaldırdım.
+
+Sonuç : product.stock < quantity kodu ile artık stok 0'a kadar düşüyor. Böylece Sepete ekle deaktif oluyor.
+
+5. updateUI fonksiyonunun başladığı noktaya breakpoint koydum. Fiyat kısmının gösterildiği span etiketinin
+için toplam fiyatın doğru hesaplanmadığını tespit ettim.
+
+Sonuç : item.price * item.quantity kodu ile bug düzeltilttim.
+
+6. showError fonksiyonda mesajların bir biri ardına eklendiğini tespit ettim.
+
+Sonuç : if içerisinde errorElement.textContent = message; kodu ile tek bir mesaj gösterdim.
+
+7. applyDiscount fonksiyonda bug olacağını düşündüğüm için breakpoint koydum ancak kontrol ederken bug
+bulamadım. Bug'ın calculateTotal fonksiyonda total fiyat hesaplanırken this.total *= 0.1; kodunun yanlış 
+yazıldığı açıkça görülüyordu.
+
+Sonuç : if blok'unun içerisini this.total *= 0.9; olarak değiştirdim.
+
+8. Ürünü cart kısmında eklediğimde stoktan düşüyor ancak o ürünü cart'tan sildiğimde cart'a eklediğim ürün
+miktarı tekrar yerine eklenmiyordu. Bunu çözmek için removeItem fonksiyonuna breakpoint koyarak içeriğini
+inceledim.
+
+Sonuç : if bloğunun içerisinde product.stock += item.quantity; kodu ile eklenen sabit değeri değiştirdim.
+Ve try bloğunun sonunda document.dispatchEvent(new Event("stockUpdate")); kodu ile stockUpdate metodunu çalıştırdım.
